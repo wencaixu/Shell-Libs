@@ -94,15 +94,6 @@ sort_bubble(){
   echo ${newArray[*]}
 }
 
-#***************************************************************
-# Sorts the specified range of the array into ascending order
-#   By Quick Sort
-#     echo $(sort_bubble ${array[*]})
-#***************************************************************
-sort_quick(){
-
-}
-
 #************************************************************************
 # copy array to destinate array
 # @param original the array to be copied
@@ -122,7 +113,65 @@ copyOf(){
    echo ${res[@]}
 }
 
-# array=(1 3 2 1)
-# copyOf ${array[*]}
+
+#************************************************************************
+# get Index Of element
+# @param array the array to be operated
+# @param low
+# @param high
+# @return index
+#************************************************************************
+getIndex(){
+  local newArray=($(echo "$@"));
+  local len=$(getLength ${newArray[*]})
+  local tmp=$(copyOf ${newArray[@]} $[$len-2]); # string format
+  local high=${newArray[$[$len-1]]};
+  local low=${newArray[$[$len-2]]};
+  arr=(${tmp// / }) # tranfer to array
+  local guard=${arr[0]}
+  while [ $low -le $high ]
+  do
+    echo "high"${tmp[$high]}
+    while [ $low -lt $high ] && [ ${tmp[$high]} -gt $guard ]
+    do
+       (( high = $high - 1 ))
+    done
+    tmp[$low]=tmp[$high]
+    while [ $low -lt $high ] && [ ${tmp[$high]} -le $guard ]
+    do
+       (( low = $low + 1 ))
+    done
+    tmp[$high]=tmp[$low]
+  done
+  tmp[$low]=$guard;
+  echo $low
+}
+
+#***************************************************************
+# Sorts the specified range of the array into ascending order
+# By Quick Sort
+# @param array the array to be operated
+# @param low
+# @param high
+# @result result array 【echo $(sort_bubble ${array[*]})】
+#***************************************************************
+sort_quick(){
+  local newArray=($(echo "$@"));
+  local len=$(getLength ${newArray[*]});
+  local tmp=$(copyOf ${newArray[@]} $[$len-2]);
+  local high=${newArray[$[$len-1]]};
+  local low=${newArray[$[$len-2]]};
+  if [ $low -le $high ]
+   then
+        index=`getIndex ${tmp[*]} $low $high`
+        echo "index"$index
+        # Recursion
+        # sort_quick ${tmp[@]} 0 $[$index-1]
+        # sort_quick ${tmp[@]} $[$index+1] $high;
+  fi
+}
+
+array=(1 3 2 1)
+sort_quick ${array[*]} 0 3
 
 sleep 10s
