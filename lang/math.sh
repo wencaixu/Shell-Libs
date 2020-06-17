@@ -14,7 +14,7 @@ pow(){
     result=$[ $result * $1 ]
     if [ $result -ge $MAX_VALUE ]
     then
-      echo "NAN"
+      echo $NAN
       break;
     fi
     ((delta=$delta-1))
@@ -28,7 +28,7 @@ pow(){
 abs(){
   if [ $1 -gt $MAX_VALUE ] || [ $1 -lt $MIN_VALUE ]
   then
-    echo "NAN"
+    echo $NAN
   fi
   if [ $1 -gt 0 ]
   then
@@ -41,7 +41,7 @@ abs(){
 sqrt(){
   if [ $1 -lt 0 ]
   then
-    echo "NAN"
+    echo $NAN
   else
     local mid=$[ $1 / 2 ]
     while [ $[$1-$mid*$mid] -gt 1 ]
@@ -50,13 +50,13 @@ sqrt(){
     then
       mid=$[ $mid / 2 ]
     fi
+    echo $mid
   done
   fi
-  echo $mid
 }
 
 main(){
-  sqrt 2
+  sqrt -2
   sleep 10s;
 }
 main
