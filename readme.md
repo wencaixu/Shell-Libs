@@ -1,7 +1,6 @@
 <p align="center">
-    <img src="./image/blackhole.png" alt="Blackhole">
+    <img src="https://github.com/wencaixu/Shell-Libs/blob/master/image/blackhole.png" alt="黑洞-一个基于Shell内核的外壳操作系统">
 </p>
-
 ### 使用过程中需要安装的文件（懒人安装法，按照提示输入Y或N即可）
 
  * 可视化组件（dialog）,也可以提前安装
