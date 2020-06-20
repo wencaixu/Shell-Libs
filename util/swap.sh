@@ -25,7 +25,7 @@ swap(){
   local gp_0=$1
   local gp_1=$2
   swap_by_effect
-  echo $gp_0,$gp_1
+  echo ${gp_0},${gp_1}
 }
 
 main(){
