@@ -3,7 +3,7 @@
 # 函数计算库，暂时仅支持整数计算（不支持浮点数计算）
 #************************************************************************
 if [[ -r ./config/global_config.cfg ]];then
-      source ./config/global_config.cfg
+      source config/lang_config.cfg
 fi
 
 pow(){
@@ -62,6 +62,18 @@ sqrt(){
   echo ${mid}
 }
 
+fact(){
+   if [[ $1 -eq 1 ]]
+   then
+     echo 1
+   else
+     local temp=$[ $1-1 ]
+     local res=`fact ${temp}`
+     echo $[ $res * $1 ]
+   fi
+}
+
+
 tan(){
   echo "TAN"
 }
@@ -75,6 +87,6 @@ sin(){
 }
 
 main(){
-  sqrt 24
+  fact 3
 }
 main

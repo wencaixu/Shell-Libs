@@ -1,4 +1,11 @@
-## Shell-Lib开发模块说明
+## Shell-Lib开发模块说明-开发ing
+
+### 使用过程中需要安装的文件（懒人安装法，按照提示输入Y或N即可）
+
+ * 可视化组件（dialog）,也可以提前安装
+ ```jshelllanguage
+     sudo [yum|apt-get] install dialog
+ ```   
 
 #### 数学计算函数（Math）
 |     |   |

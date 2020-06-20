@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if [ -r swap.sh ];then
+if [[ -r swap.sh ]];then
       . ./swap.sh
   fi
 
