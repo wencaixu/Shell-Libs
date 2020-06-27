@@ -93,6 +93,7 @@ main(){
   # sleep 10s;
   # is_root 'root'
   # sleep 10s;
+  # login 4 2
   log_out 4 2
 }
 

@@ -1,5 +1,5 @@
 main(){
-  while [ -n "$1" ]
+  while [[ -n "$1" ]]
   do
       case "$1" in
       -a)
