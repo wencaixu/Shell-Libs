@@ -36,13 +36,13 @@ get(){
   last=${!#}
   local newArray=($(echo "$@"))
   len=$(getLength ${newArray[*]});
-  if [ $last -gt $len ]
+  if [[ ${last} -gt ${len} ]]
   then
     echo "None"
   fi
   for ((i=0;i<$len;i++))
   do
-    if [ $i -eq $last ]
+    if [[ ${i} -eq ${last} ]]
     then
         echo ${newArray[$i]};
       fi
@@ -75,7 +75,7 @@ sort_bubble(){
   size=$[ "$#" - 1 ];
   for(( i=0; i <= $size; i++ )){
     for(( j=$[ $i + 1 ]; j <= $size; j++ )){
-      if [ ${newArray[$i]} -gt ${newArray[$j]} ];then
+      if [[ ${newArray[$i]} -gt ${newArray[$j]} ]];then
           t=${newArray[$i]};
           newArray[$i]=${newArray[$j]};
           newArray[$j]=$t;
