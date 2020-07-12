@@ -2,8 +2,9 @@
 #************************************************************************
 # 函数计算库，暂时仅支持整数计算（不支持浮点数计算）
 #************************************************************************
+current_path=$(pwd)
 if [[ -r ./config/global_config.cfg ]];then
-      source config/lang_config.cfg
+      source ${current_path}/config/lang_config.cfg
 fi
 
 pow(){

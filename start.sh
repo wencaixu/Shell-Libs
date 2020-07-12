@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-
+# set -x
 # 服务开启
-
+current_path=$(pwd)
 if [[ -r ./security/user.sh ]] && [[ -r ./view/menu.sh ]]
 then
-  echo "123"
-  sh ./security/user.sh
+  source ./lang/math.sh
+  source ./security/user.sh
 fi
 
 main(){
